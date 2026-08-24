@@ -366,3 +366,35 @@ int main() {
         cout<<endl;
     }
 }
+
+
+// finding square root of a number in an array using binary search.
+#include <iostream>
+using namespace std;
+int main() {
+    int arr[10]= {1,2,3,4,5,6,7,8,9,10};
+    int num = 10;
+    int n = 10;
+    int s=0,e=n-1;
+    for(int i=0;i<=n;i++){
+        int mid = (s+e)/2;
+        if(arr[mid]==num){
+            for(int i=0;i<num;i++){
+                if(i*i<num)
+                continue;
+                else if(i*i==num)
+                    cout<<i;
+                else if(i*i>num)
+                cout<<i-1;
+                break;
+            }
+            break;
+        }
+        else if(arr[mid] > num){
+            e = mid-1;
+        }
+        else{
+            s = mid+1;
+        } 
+    }
+}
