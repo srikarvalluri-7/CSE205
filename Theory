@@ -1,0 +1,10 @@
+Big - O
+
+condition  :-
+  f(n) = c + g(n) for all n >= n.
+
+
+Big - Theta
+
+condition:-
+  f(n) = c*g(n) for all n>=n.
