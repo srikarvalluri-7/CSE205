@@ -463,3 +463,165 @@ int main(){
     cout<<endl;
     return 0;
 }
+
+//selection sort 
+//time complexity = O(n^2)(all for best worst and avg cases)
+#include <iostream>
+using namespace std;
+
+int main() {
+    int arr[] = {5, 2, 8, 1, 3};
+    int n = 5;
+    //finding the minimum index
+    for (int i = 0; i < n - 1; i++) {
+        int minIndex = i;
+
+        for (int j = i + 1; j < n; j++) {
+            if (arr[j] < arr[minIndex]) {
+                minIndex = j;
+            }
+        }
+
+        // Swaping 
+        int temp = arr[i];
+        arr[i] = arr[minIndex];
+        arr[minIndex] = temp;
+    }
+
+    cout << "Sorted array: ";
+
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+
+    return 0;
+}
+
+
+
+//Insertion short := insert into sorted portion.
+//time complexity = O(n^2) for worst and O(n) for best.
+#include <iostream>
+using namespace std;
+int main(){
+    int arr[10] = {2,3,1,5,7,4,9,10,8,6};
+    int n = 10;
+    int key;
+    for(int i=1;i<=n-1;i++){
+        key = arr[i];
+        int j=i-1;
+        while(j>=0 and arr[j]>key){
+            arr[j+1]=arr[j];
+            j--;
+        }
+        arr[j+1]=key;
+    }
+    for(int i=0;i<n;i++){
+        cout<<arr[i]<<" ";
+    }
+}
+
+//We have to merge two arrays into a single array.
+#include <iostream>
+using namespace std;
+int main(){
+    int arr1[5] = {2,3,1,5,7};
+    int n=5;
+    int arr2[4] = {6,12,15,10};
+    int m=4;
+    int x = n+m;
+    int arr[x];
+    for(int i=0;i<n;i++){
+        arr[i]=arr1[i];
+    }
+    for(int i=0;i<m;i++){
+        arr[n+i]=arr2[i];
+    }
+    for(int i=0;i<x;i++){
+        cout<<arr[i]<<" ";
+    }
+    
+}
+
+//We have to merge two arrays into a single array(sorted).
+#include <iostream>
+using namespace std;
+int main(){
+    int arr1[5] = {2,3,1,5,7};
+    int n=5;
+    int arr2[4] = {6,12,15,10};
+    int m=4;
+    int x = n+m;
+    int arr[x];
+    for(int i=0;i<n;i++){
+        arr[i]=arr1[i];
+    }
+    for(int i=0;i<m;i++){
+        arr[n+i]=arr2[i];
+    }
+    for(int i=0;i<x-1;i++){
+        for(int j=0;j<x-i-1;j++){
+            if(arr[j]>arr[j+1]){
+                int temp = arr[j];
+                arr[j]=arr[j+1];
+                arr[j+1]=temp;
+            }
+        }
+    }
+    for(int i=0;i<x;i++){
+        cout<<arr[i]<<" ";
+    }
+    
+}
+
+
+//We have to merge two sorted arrays into a single array(sorted).
+#include <iostream>
+using namespace std;
+int main(){
+    int arr1[5] = {1,3,8,11,16};
+    int n=5;
+    int arr2[4] = {6,12,15,10};
+    int m=4;
+    int x = n+m;
+    int arr[x];
+    int i=0,j=0,k=0;
+    while(i<n&&j<m){
+        if(arr1[i]<arr2[j]){
+            arr[k]=arr1[i];
+            i++;
+        }
+        else{
+            arr[k]=arr2[j];
+            j++;
+        }
+        k++;
+    }
+    while(i<n){
+        arr[k]=arr1[i];
+        k++;
+        i++;
+    }
+    while(j<m){
+        arr[k]=arr2[j];
+        k++;
+        j++;
+    }
+    
+    for(int i=0;i<x;i++){
+        cout<<arr[i]<<" ";
+    }
+    
+}
+
+
+//vector is a dynamic array which will automatically shrink or grow.
+//whenever we remove or add any element
+//contigous memory, allow access element using index.
+#include <vector>
+int main(){
+    int n=6;
+    vector<int>v1;
+    vector<int>v2 = {10,20,30,40};
+    vector<int>v3(5,100);//it will create an array like (100,100,100,100,100);
+}
