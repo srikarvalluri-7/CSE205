@@ -625,3 +625,34 @@ int main(){
     vector<int>v2 = {10,20,30,40};
     vector<int>v3(5,100);//it will create an array like (100,100,100,100,100);
 }
+
+
+
+//vector elements prining.
+#include <iostream>
+#include <vector>
+using namespace std;
+int main(){
+    vector<int> v = {10,20,30,40,50};
+    for(int i=0;i<v.size(); i++){
+        cout<<v[i]<<" ";
+    }
+    return 0;
+}
+
+
+//find the max vector element with range based for loop.
+#include <iostream>
+#include <vector>
+using namespace std;
+int main(){
+    vector<int> v = {10,20,30,40,50};
+    int max = v[0];
+    for(int x: v){
+        if(x>max){
+            max = x;
+        }
+    }
+    cout<<a;
+    return 0;
+}
