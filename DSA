@@ -656,3 +656,98 @@ int main(){
     cout<<a;
     return 0;
 }
+
+
+
+//creating a linkedlist using 4 nodes.
+#include <iostream>
+using namespace std;
+struct Node{
+    int data;
+    Node* next;
+    Node(int value){
+        data = value;
+        next = nullptr;
+    }
+};
+int main(){
+    Node* n1 = new Node(10);
+    Node* n2 = new Node(20);
+    Node* n3 = new Node(30);
+    Node* n4 = new Node(40);
+    //(*n1).next = n2;
+    n1->next = n2;
+    n2->next = n3;
+    n3->next = n4;
+    //display(n1);
+    cout<<n1->next->data<<"->"<<n1->next->next<<endl;
+}
+
+
+//creating a linkedlist and inserting the values at the start and printing the linkedlist
+#include <iostream>
+using namespace std;
+
+// Node class
+class Node {
+public:
+    int data;
+    Node* next;
+
+    Node(int x) {
+        data = x;
+        next = NULL;
+    }
+};
+
+// Linked List class
+class LL {
+    Node* head;
+    Node* tail;
+
+public:
+    // Constructor
+    LL() {
+        head = NULL;
+        tail = NULL;
+    }
+
+    // Insert at beginning
+    void insatbeg(int x) {
+        Node* newnode = new Node(x);
+
+        if (head == NULL) {
+            head = tail = newnode;
+            return;
+        }
+        else {
+            newnode->next = head;
+            head = newnode;
+        }
+    }
+
+    // Display linked list
+    void display() {
+        Node* temp = head;
+
+        while (temp != NULL) {
+            cout << temp->data << " -> ";
+            temp = temp->next;
+        }
+
+        cout << "NULL" << endl;
+    }
+};
+
+int main() {
+
+    LL list;
+
+    list.insatbeg(30);
+    list.insatbeg(20);
+    list.insatbeg(10);
+
+    list.display();
+
+    return 0;
+}*/
