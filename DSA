@@ -1014,3 +1014,26 @@ int main(){
     //delete dummyFOrNode2;
     
 }
+
+
+#include<iostream>
+using namespace std;
+
+class Node {
+public:
+    int data;
+    Node* prev;
+    Node* next;
+
+    // Node(int data){
+    //     this->data = data;
+    //     prev = NULL;
+    //     next = NULL;
+    // }
+
+    Node(int data, Node* prev = nullptr, Node* next=nullptr) {
+        this->data = data;
+        this->prev = prev;
+        this->next = next;
+    }
+};
