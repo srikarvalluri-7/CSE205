@@ -1,0 +1,83 @@
+functions in c++ for strings:-
+toupper = to convert a string to a upper case
+
+
+
+
+
+
+
+//write a program to count no of vowels in the given string.
+#include <iostream>
+using namespace std;
+int main(){
+    string s;
+    cin>>s;
+    int count=0;
+    for(int i=0;i<sizeof(s);i++){
+        if(s[i]=='a'||'e'||'i'||'o'||'u'||'A'||'E'||'I'||'O'||'U'){
+            count++;
+        }
+    }
+    cout<<count;
+}
+
+
+//write a function to check the string is palindrome or not ?
+#include <iostream>
+using namespace std;
+bool isPalindrome(string s){
+    int i=0;
+    int j = s.length()-1;
+    while(i<j){
+        if(s[i]!=s[j]){
+            return false;
+        }
+        i++;
+        j--;
+    }
+    return true;
+}
+int main(){
+    string s;
+    cout<<isPalindrome(s);
+}
+
+//count the number of digits present in a string.
+#include <iostream>
+using namespace std;
+int main(){
+    string s;
+    cin>>s;
+    int count=0;
+    for(int i=0;i<s.size();i++){
+        if(isdigit(s[i])){
+            count++;
+        }
+    }
+    cout<<count;
+}
+
+
+//Find the Index of the First Occurrence in a String
+
+class Solution {
+public:
+    int strStr(string haystack, string needle) {
+        int n = needle.length();
+        int k=-1;
+        for(int i=0;i<haystack.length();i++){
+            if(haystack.substr(i,n)==needle){
+                k=i;
+                break;
+            }
+        }
+        if(k==-1){
+            return -1;
+        }
+        else{
+            return k;
+        }
+    }
+};
+
