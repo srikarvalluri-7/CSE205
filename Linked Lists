@@ -1,0 +1,291 @@
+//basic code simple linked list with two nodes.
+#include <iostream>
+using namespace std;
+
+class Node {
+public:
+    int data;
+    Node* next;
+
+    Node(int value) {
+        data = value;
+        next = NULL;
+    }
+};
+
+int main() {
+    Node* first = new Node(10);
+    Node* second = new Node(20);
+
+    first->next = second;
+
+    cout << first->data << endl;
+    cout << first->next->data;
+
+    return 0;
+}
+
+
+//singly linked lists
+#include<iostream>
+using namespace std;
+
+// singly linked list node structure
+class Node {
+public:
+    int data;
+    Node* next;
+
+    // constructor to initialize a new node with data
+    Node(int new_data) {
+        this->data = new_data;
+        this->next = nullptr;
+    }
+};
+
+int main() {
+    
+    // Create the first node (head of the list)
+    Node* head = new Node(10);
+
+    // Link the second node
+    head->next = new Node(20);
+
+    // Link the third node
+    head->next->next = new Node(30);
+
+    // Link the fourth node
+    head->next->next->next = new Node(40);
+
+    // printing linked list
+    Node* temp = head;
+    while (temp != nullptr) {
+        cout << temp->data << " ";
+        temp = temp->next;
+    }
+}
+
+
+
+//Traversal of Singly Linked List (Iterative Approach)
+#include <iostream>
+using namespace std;
+
+// a linked list node
+class Node {
+public:
+    int data;
+    Node* next;
+    Node(int new_data) {
+        this->data = new_data;
+        this->next = nullptr;
+    }
+};
+
+// function to traverse and print the singly linked list
+void traverseList(Node* head) {
+    while (head != nullptr) {
+        cout << head->data;
+        if (head->next != nullptr)  
+            cout << " -> ";
+        head = head->next;
+    }
+    cout << endl;
+}
+
+int main() {
+  
+    // create a hard-coded linked list:
+    // 10 -> 20 -> 30 -> 40
+    Node* head = new Node(10);
+    head->next = new Node(20);
+    head->next->next = new Node(30);
+    head->next->next->next = new Node(40);
+
+    traverseList(head);
+
+    return 0;
+}
+
+
+//Traversal of Singly Linked List (Recursive Approach)
+#include <iostream>
+using namespace std;
+
+// a linked list node
+class Node {
+public:
+    int data;
+    Node* next;
+    Node(int new_data) {
+        this->data = new_data;
+        this->next = nullptr;
+    }
+};
+
+// function to traverse and print the singly linked list (recursive)
+void traverseList(Node* head) {
+
+    // base condition is when the head is nullptr
+    if (head == nullptr) {
+        cout << endl;
+        return;
+    }
+
+    // printing the current node data
+    cout << head->data;
+
+    // print arrow if not the last node
+    if (head->next != nullptr) {
+        cout << " -> ";
+    }
+
+    // moving to the next node
+    traverseList(head->next);
+}
+
+int main() {
+  
+    // create a hard-coded linked list:
+    // 10 -> 20 -> 30 -> 40
+    Node* head = new Node(10);
+    head->next = new Node(20);
+    head->next->next = new Node(30);
+    head->next->next->next = new Node(40);
+
+    traverseList(head);
+
+    return 0;
+}
+
+
+//Insert a Node at Front of a singly Linked List.
+#include <iostream>
+using namespace std;
+
+// Define a node in the linked list
+class Node {
+public:
+    int data;
+    Node* next;
+
+    // Constructor to initialize the node
+    Node(int x) {
+        data = x;
+        next = nullptr;
+    }
+};
+
+// Function to insert a new node
+// at the beginning of the list
+Node* insertAtFront(Node* head, int x) {
+    Node* newNode = new Node(x);
+    newNode->next = head;
+    return newNode;
+}
+
+void printList(Node* head) {
+    Node* temp = head;
+
+    while (temp != nullptr) {
+        cout << temp->data;
+        if (temp->next != nullptr) {
+            cout << " -> ";
+        }
+        temp = temp->next;
+    }
+    cout << endl;
+}
+
+int main() {
+    // Create the linked list 2->3->4->5
+    Node* head = new Node(2);
+    head->next = new Node(3);
+    head->next->next = new Node(4);
+    head->next->next->next = new Node(5);
+
+    // Insert a new node at the front of the list
+    int x = 1;
+    head = insertAtFront(head, x);
+
+    printList(head);
+
+    return 0;
+}
+
+
+//Insert Node at the End of a Linked List
+#include <iostream>
+using namespace std;
+
+// A linked list node
+class Node {
+public:
+    int data;
+    Node* next;
+
+    // Constructor to initialize a new node with data
+    Node(int x) {
+        data = x;
+        next = nullptr;
+    }
+};
+
+// Given the head of a list and an int, appends
+// a new node at the end and returns the head.
+Node* insertAtEnd(Node* head, int x) {
+  
+    // Create a new node
+    Node* newNode = new Node(x);
+
+    // If the Linked List is empty, make
+    // the new node as the head and return
+    if (head == nullptr) {
+        return newNode;
+    }
+
+    // Store the head reference in a temporary variable
+    Node* last = head;
+
+    // Traverse till the last node
+    while (last->next != nullptr) {
+        last = last->next;
+    }
+
+    // Change the next pointer of the last node 
+    // to point to the new node
+    last->next = newNode;
+
+    // Return the head of the list
+    return head;
+}
+
+// This function prints the contents 
+// of the linked list starting from the head
+void printList(Node* node) {
+    while (node != nullptr) {
+        cout << node->data;
+        if (node->next != nullptr) {
+            cout << " -> ";
+        }
+        node = node->next;
+    }
+    cout << endl;
+}
+
+int main() {
+  
+    // Create a linked list:
+    // 1 -> 2 -> 3 -> 4 -> 5
+    Node* head = new Node(1);
+    head->next = new Node(2);
+    head->next->next = new Node(3);
+    head->next->next->next = new Node(4);
+    head->next->next->next->next = new Node(5);
+
+    head = insertAtEnd(head, 6);
+
+    printList(head);
+
+    return 0;
+}
