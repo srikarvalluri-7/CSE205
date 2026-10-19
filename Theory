@@ -8,3 +8,13 @@ Big - Theta
 
 condition:-
   f(n) = c*g(n) for all n>=n.
+
+
+TREE:-
+
+Degree of Node = number of children of the node.
+Depth of Node = Number of edges from root to the node.
+Level of node = depth,under our zero based indexing, level of root node = 0.
+Height of node = Number of edges from the node to the deepest leaf node.
+height of tree = height of root node.
+subtree = tree formed by a node and all its descendents.
