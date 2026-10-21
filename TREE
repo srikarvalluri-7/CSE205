@@ -23,3 +23,142 @@ int main(){
   root->right->left = new Node(2);
   return 0;
 }
+
+
+//recursion understanding 
+// given an array of integers , write a recursive soln to print in reverse order.
+#include <iostream>
+using namespace std;
+void rev(int a[],int n){
+    if(n==-1){
+        return;
+    }
+    cout<<a[n]<<" ";
+    rev(a,n-1);
+}
+int main(){
+    int n;
+    cin>>n;
+    int arr[n];
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+    }
+    rev(arr,n-1);
+    cout<<endl;
+    return 0;
+    
+}
+
+
+// given an array of integers , write a recursive soln to print the array in order like one from the begining and one from the end.
+#include <iostream>
+using namespace std;
+void print(int i,int j,int a[]){
+    if(i>j){
+        return;
+    }
+    if(i==j){
+        cout<<a[i]<<" ";
+        return;
+    }
+    cout<<a[i]<<" "<<a[j]<<" ";
+    print(i+1,j-1,a);
+}
+int main(){
+    int n;
+    cin>>n;
+    int arr[n];
+    for(int k=0;k<n;k++){
+        cin>>arr[k];
+    }
+    int i=0,j=n-1;
+    print(i,j,arr);
+    cout<<endl;
+    return 0;
+}
+
+
+//write a recursive fun to remove all odd integers from an array do not use any extra space or print in the function.
+//example arr[] = {1,2,3,4,5,6}
+//output arr[] = {2,4,6} n = 3;
+
+#include <iostream>
+using namespace std;
+void removeOdd(int a[],int &n,int i){
+    if(i>=n){
+        return;
+    }
+    if(a[i]%2!=0){
+        for(int j=i;j<n-1;j++){
+            a[j] = a[j+1];
+        }
+        n--;
+        return removeOdd(a,n,i);
+    }
+    return removeOdd(a,n,i+1);
+}
+int main(){
+    int n;
+    cin>>n;
+    int arr[n];
+    for(int k=0;k<n;k++){
+        cin>>arr[k];
+    }
+    int i=0;
+    removeOdd(arr,n,i);
+    for(int j=0;j<n;j++){
+        cout<<arr[j]<<" ";
+    }
+    cout<<endl;
+    cout<<"n="<<n;
+}
+
+
+//write a recursive program to complete nth fibonacci number 1st and 2nd fibonacci numbers are 1,1
+
+#include <iostream>
+using namespace std;
+int fibonacci(int n){
+    if(n<=2){
+        return 1;
+    }
+    return fibonacci(n-1)+fibonacci(n-2);
+}
+int main(){
+    int n;
+    cin>>n;
+    cout<<fibonacci(n);
+}
+
+
+//write a recursive function to implement the binary search, i.e given an array of sorted integers.
+#include <iostream>
+using namespace std;
+int binarysearch(int a[],int i,int j,int k){
+    if(i>j){
+        return -1;
+    }
+    int mid = i+(j-1)/2;
+    if(a[mid]==k){
+        return mid;
+    }
+    else if(a[mid]>k){
+        return binarysearch(a,i,mid-1,k);
+    }
+    else{
+        return binarysearch(a,mid+1,j,k);
+    }
+}
+int main(){
+    int n;
+    cin>>n;
+    int arr[n];
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+    }
+    int k;
+    cin>>k;
+    int i=0,j=n-1;
+    cout<<binarysearch(arr,i,j,k);
+    return 0;
+}
