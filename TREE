@@ -162,3 +162,10 @@ int main(){
     cout<<binarysearch(arr,i,j,k);
     return 0;
 }
+
+
+Binary Search Tree
+organizes data in a heirastical structure
+each node has a value and two child nodes
+left child node has a value and two 
+
